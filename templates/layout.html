@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>{% block page_title %} POS {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+
+	<!-- import JS -->
+	<script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js'%}"></script>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!-- import CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+	<link rel="stylesheet" href="{% static 'css/w3_2.css' %}">
+	<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+	<link rel="stylesheet" href="{% static 'css/navi.css' %}">
+</head>
+<body>
+	<div class="page-header">
+		<h1>POS</h1>
+	</div>
+	{% include 'navi.html' %}
+	<div class="content">
+	{% block content %}
+	{% endblock %}
+	</div>
+</body>
+</html>

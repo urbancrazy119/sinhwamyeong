@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>View Daily</h1>
+<div>
+	<form class="searchForm">
+		판매기간
+		판매유형
+	</form>
+</div>
+<div class="view_detail">
+	<table class="pan_list w3-table w3-striped w3-bordered">
+		<colgroup>
+			<col width="10%"/>
+			<col width="30%"/>
+			<col width="30%"/>
+			<col width="30%"/>
+		</colgroup>
+		<thead>
+			<tr>
+				<td></td>
+				<td>판매일자</td>
+				<td>판매금액</td>
+				<td>판매유형</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for sales in list %}
+				<tr>
+					<td>{{ sales}}</td>
+					<td>{{ sales.pan_date }}</td>
+					<td>{{ sales.pan_price }}</td>
+					<td>{{ sales.pan_type }}</td>
+				</tr>
+			{% empty %}
+				등록된 판매 정보가 없습니다.
+			{% endfor %}
+		</tbody>
+
+	</table>
+</div>
+{% endblock %}

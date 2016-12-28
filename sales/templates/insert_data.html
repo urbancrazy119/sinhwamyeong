@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<script>
+$(function(){
+	$("#id_pan_date").datepicker({
+		dateFormat:"yy/mm/dd"
+	});
+});
+</script>
+<h1>Insert Data</h1>
+<form method ="POST" action="{% url 'insert_data'%}" enctype="multipart/form-data" class="insert_form">
+	{% csrf_token %}
+	{{form.as_p}}
+	<p>
+		<input type="submit" class="save btn btn-default" value="Save"/>
+	</p>
+</form>
+{% endblock%}

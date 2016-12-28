@@ -1,0 +1,33 @@
+{% extends "layout.html"%}
+
+{% block content %}
+<div class="login">
+	{% if form.errors %}
+	<p>incorrect ID or Password.</p>
+	{% endif %}
+
+	{% if next %}
+		{% if user.is_authenticated %}
+			<p>You need authentication</p>
+		{% else %}
+			<p>You need to login.</p>
+		{% endif %}
+	{% endif %}
+	<form method="post" action="{% url 'login' %}">
+	{% csrf_token %}
+	<table>
+		<tr>
+			<td>{{ form.username.label_tag }}</td>
+			<td>{{ form.username }} </td>
+		</tr>
+		<tr>
+			<td>{{ form.password.label_tag }}</td>
+			<td>{{ form.password }}</td>
+		</tr>
+	</table>
+	<input type="submit" value="login" class="btn btn-default"/>
+	<input type="hidden" name="next" value="{{ next }}"/>
+	</form>
+</div>
+
+{% endblock %}
