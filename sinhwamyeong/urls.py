@@ -25,6 +25,10 @@ from report import views as report_view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^sales/input/', sales_view.insert_data, name='insert_data'),
+    url(r'^sales/delete/', sales_view.delete_data, name='delete_data'),
+
+    url(r'^sales/error/', sales_view.error, name='insert_error'),
+
     url(r'^accounts/login/',login, name='login', kwargs={'template_name':'login.html'}),
     url(r'^accounts/logout/',logout, name='logout'),
     url(r'^report/daily/',report_view.daily_report, name='daily'),

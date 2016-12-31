@@ -12,6 +12,7 @@ from sales.models import day
 from datetime import datetime
 
 # Create your views here.
+@login_required
 def daily_report(request):
     now = datetime.now()
     if request.method == "POST":

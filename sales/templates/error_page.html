@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1>Saving ...</h1>
+<div>
+	중복된 등록입니다. 
+	<form method="POST" action="{% url 'delete_data'%}" class="delete_form">
+		<input type="hidden" name="pan_date" value="{{val.pan_date}}"/>
+		<input type="hidden" name="pan_price" value="{{val.pan_price}}"/>
+		<input type="hidden" name="pan_type" value="{{val.pan_prcie}}"/>
+		<input type="submit" class="btn btn-default" value="수정 후 등록하기"/>
+		<input type="button" class="btn btn-default" value="다음 입력하기" onclick="location.href='{% url 'insert_data' %}'"/>
+	</form>
+</div>
+{% endblock %}
